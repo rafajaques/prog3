@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
-Route::get('/produtos', [ProdutosController::class, 'index']);
+Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
 
-Route::get('/produtos/inserir', [ProdutosController::class, 'create']);
+Route::get('/produtos/inserir', [ProdutosController::class, 'create'])->name('produtos.inserir');
 
-Route::get('/produtos/{id}', [ProdutosController::class, 'show']);
+Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.show');
