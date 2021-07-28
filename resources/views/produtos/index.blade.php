@@ -15,15 +15,22 @@
     <table class="table">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
+            <th width="50%">Nome</th>
             <th>Preço</th>
+            <th>Gerenciar</th>
         </tr>
 
         @foreach($prods as $prod)
         <tr>
             <td>{{$prod->id}}</td>
-            <td>{{$prod->nome}}</td>
-            <td>{{$prod->preco}}</td>
+            <td>
+                <a href="{{ route('produtos.show', $prod) }}">{{$prod->nome}}</a>
+            </td>
+            <td>R$ {{$prod->preco}}</td>
+            <td>
+                <a href="{{ route('produtos.edit', $prod) }}" class="btn btn-primary btn-sm" role="button"><i class="bi bi-pencil-square"></i> Editar</a>
+                <a href="{{ route('produtos.remove', $prod) }}" class="btn btn-danger btn-sm" role="button"><i class="bi bi-trash"></i> Apagar</a>
+            </td>
         </tr>
         @endforeach
     </table>
