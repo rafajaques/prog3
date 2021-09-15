@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,13 @@ Route::put('/produtos/{prod}/editar', [ProdutosController::class, 'update'])->na
 Route::get('/produtos/{prod}/apagar', [ProdutosController::class, 'remove'])->name('produtos.remove');
 
 Route::delete('/produtos/{prod}/apagar', [ProdutosController::class, 'delete'])->name('produtos.delete');
+
+Route::get('usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+
+Route::prefix('usuarios')->group(function() {
+    
+    Route::get('/inserir', [UsuariosController::class, 'create'])->name('usuarios.inserir');
+    Route::post('/inserir', [UsuariosController::class, 'insert'])->name('usuarios.gravar');
+
+});
+
