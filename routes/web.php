@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', ['pagina' => 'home']);
 })->name('home');
 
 Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
@@ -25,7 +25,7 @@ Route::get('/produtos/inserir', [ProdutosController::class, 'create'])->name('pr
 
 Route::post('/produtos/inserir', [ProdutosController::class, 'insert'])->name('produtos.gravar');
 
-Route::get('/produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.show');
+Route::get('/produtos/{prod}', [ProdutosController::class, 'show'])->name('produtos.show');
 
 Route::get('/produtos/{prod}/editar', [ProdutosController::class, 'edit'])->name('produtos.edit');
 
@@ -44,3 +44,7 @@ Route::prefix('usuarios')->group(function() {
 
 });
 
+Route::get('/login', [UsuariosController::class, 'login'])->name('login');
+Route::post('/login', [UsuariosController::class, 'login']);
+
+Route::get('/logout', [UsuariosController::class, 'logout'])->name('logout');

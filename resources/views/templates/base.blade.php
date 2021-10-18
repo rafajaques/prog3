@@ -14,18 +14,19 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="{{route('home')}}" class="nav-link px-2 text-secondary">Inicial</a></li>
-          <li><a href="{{route('produtos')}}" class="nav-link px-2 text-white">Produtos</a></li>
-          <li><a href="/usuarios" class="nav-link px-2 text-white">Usuários</a></li>
+          <li><a href="{{route('home')}}" class="nav-link px-2 @if ($pagina == 'home') text-secondary @else text-white @endif">Inicial</a></li>
+          <li><a href="{{route('produtos')}}" class="nav-link px-2 @if ($pagina == 'produtos') text-secondary @else text-white @endif">Produtos</a></li>
+          <li><a href="/usuarios" class="nav-link px-2 @if ($pagina == 'usuarios') text-secondary @else text-white @endif">Usuários</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control form-control-dark" placeholder="Busca..." aria-label="Search">
-        </form>
-
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
-          <button type="button" class="btn btn-warning">Cadastro</button>
+          @if (session('usuario'))
+            Olá, {{ session('usuario.nome') }}!
+            <a href="{{ route('logout') }}" role="button" class="btn btn-outline-danger">Sair</a>
+          @else
+            <a href="{{ route('login') }}" role="button" class="btn btn-outline-light me-2">Login</a>
+            <a href="{{ route('usuarios.inserir') }}" role="button" class="btn btn-warning">Cadastro</a>
+          @endif
         </div>
       </div>
     </div>

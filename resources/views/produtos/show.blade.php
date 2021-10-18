@@ -2,5 +2,7 @@
 @section('title', 'Visualizar produto')
 
 @section('content')
-<p>Você está visualizando o produto {{$id}}</p>
+<h1>{{ $prod->nome }}</h1>
+<p>Preço: R$ {{$prod->preco}}</p>
+<p>Descrição do produto: {{ $prod->descricao }}</p>
 @endsection

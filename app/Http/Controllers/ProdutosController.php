@@ -12,17 +12,17 @@ class ProdutosController extends Controller
     {
         $produtos = Produto::orderBy('id', 'desc')->get();
 
-        return view('produtos.index', ['prods' => $produtos]);
+        return view('produtos.index', ['prods' => $produtos, 'pagina' => 'produtos']);
     }
 
-    public function show($id)
+    public function show(Produto $prod)
     {
-        return view('produtos.show', ['id' => $id]);
+        return view('produtos.show', ['prod' => $prod, 'pagina' => 'produtos']);
     }
 
     public function create()
     {
-        return view('produtos.create');
+        return view('produtos.create', ['pagina' => 'produtos']);
     }
 
     public function insert(Request $form)
@@ -40,7 +40,7 @@ class ProdutosController extends Controller
 
     public function edit(Produto $prod)
     {
-        return view('produtos.edit', ['prod' => $prod]);
+        return view('produtos.edit', ['prod' => $prod, 'pagina' => 'produtos']);
     }
 
     public function update(Request $form, Produto $prod)
@@ -56,7 +56,7 @@ class ProdutosController extends Controller
 
     public function remove(Produto $prod)
     {
-        return view('produtos.remove', ['prod' => $prod]);
+        return view('produtos.remove', ['prod' => $prod, 'pagina' => 'produtos']);
     }
 
     public function delete(Produto $prod)

@@ -14,13 +14,18 @@
             </div>
 
             <div class="mb-3">
-                <label for="preco" class="form-label">Preço</label>
-                <input type="number" class="form-control" id="preco" name="preco">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="email" name="email">
             </div>
 
             <div class="mb-3">
-                <label for="descricao" class="form-label">Descrição</label>
-                <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
+                <label for="usuario" class="form-label">Usuário</label>
+                <input type="text" class="form-control" id="usuario" name="usuario">
+            </div>
+
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha">
             </div>
 
             <div class="mb-3">
