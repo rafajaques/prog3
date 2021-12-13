@@ -66,7 +66,9 @@ class UsuariosController extends Controller
 
     public function logout()
     {
-        session()->forget('usuario');
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
         return redirect()->route('home');
     }
 }

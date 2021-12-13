@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
-{{Auth::user()->username}}
     <header class="p-3 bg-dark text-white mb-3">
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -20,8 +19,8 @@
         </ul>
 
         <div class="text-end">
-          @if (session('usuario'))
-            Olá, {{ session('usuario.nome') }}!
+          @if (Auth::user())
+            Olá, {{Auth::user()->name}}!
             <a href="{{ route('logout') }}" role="button" class="btn btn-outline-danger">Sair</a>
           @else
             <a href="{{ route('login') }}" role="button" class="btn btn-outline-light me-2">Login</a>
